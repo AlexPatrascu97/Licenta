@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Licenta_Front_End.Models.Project>
+
+@{
+	ViewData["Title"] = "IndexForLeader";
+}
+
+
+
+
+
+	<div class="table-responsive box">
+		<table class="table thead-light table-striped table-white box2">
+			<thead>
+				<tr class="table-warning">
+					<th>
+						Project Name
+					</th>
+					<th>
+						Start Date
+					</th>
+					<th>
+						Allocated Money
+					</th>
+					<th>
+						Client Name
+					</th>
+					
+
+
+
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach (var item in Model)
+				{
+					<tr>
+						<td style="font-weight: bold;">
+							@Html.DisplayFor(modelItem => item.ProjectName)
+						</td>
+						<td>
+							@Html.DisplayFor(modelItem => item.StartDate)
+						</td>
+						<td>
+							@Html.DisplayFor(modelItem => item.AllocatedMoney)
+						</td>
+						<td>
+							@Html.DisplayFor(modelItem => item.ClientName)
+						</td>
+					
+
+
+						
+						<td>
+							@Html.ActionLink("Details", "DetailsLeader", new { Id = item.Id }, htmlAttributes: new { @class = "btn btn-info", @role = "button" })
+						</td>
+
+					</tr>
+				}
+			</tbody>
+
+
+		</table>
+
+		<br>
+		<p class="butoane">
+			<a asp-action="CreateProjectLeader" class="btn btn-warning butoane">Add Project</a>
+		</p>
+		<br>
+	</div>

@@ -1,0 +1,78 @@
+﻿@model IEnumerable<Licenta_Front_End.Models.Sprint>
+
+@{
+	ViewData["Title"] = "Index";
+}
+
+@using (Html.BeginForm("Index", "Sprint", FormMethod.Get))
+{
+	<p>
+		<a asp-action="Create" class="btn btn-warning">Create New</a>
+		<input class="btn btn-warning" type="submit" value="Search" />
+	</p>
+	<br>
+	@Html.TextBox("searching", null, new { @class = "form-control" })
+	<br>
+
+}
+<br>
+
+<div class="table-responsive box">
+	<table class="table thead-light table-striped table-white box2">
+
+		<thead>
+
+			<tr class="table-warning">
+				<th>
+					@Html.DisplayNameFor(model => model.SprintNumber)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.ProjectName)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.startdate)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.status)
+				</th>
+
+				<th></th>
+				<th></th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td>
+						@Html.DisplayFor(modelItem => item.SprintNumber)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.ProjectName)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.startdate)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.status)
+					</td>
+
+					<td>
+						@Html.ActionLink("Edit", "Edit", new { Id = item.Id }, htmlAttributes: new { @class = "btn btn-primary", @role = "button" })
+					</td>
+					<td>
+						@Html.ActionLink("Details", "Details", new { Id = item.Id }, htmlAttributes: new { @class = "btn btn-info", @role = "button" })
+					</td>
+					<td>
+						@Html.ActionLink("Delete", "Delete", new { Id = item.Id }, htmlAttributes: new { @class = "btn btn-danger", @role = "button" })
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>
+<br>
+<br>
+<br>
+<br>

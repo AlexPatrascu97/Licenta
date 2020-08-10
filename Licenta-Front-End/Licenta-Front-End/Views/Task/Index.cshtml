@@ -1,0 +1,97 @@
+﻿@model IEnumerable<Licenta_Front_End.Models.Task>
+
+@{
+	ViewData["Title"] = "Index";
+}
+
+@using (Html.BeginForm("Index", "Task", FormMethod.Get))
+{
+	<p>
+		<a asp-action="Create" class="btn btn-warning">Create New</a>
+		<input class="btn btn-warning" type="submit" value="Search" />
+	</p>
+	<br>
+	@Html.TextBox("searching", null, new { @class = "form-control" })
+	<br>
+
+}
+<br>
+
+<div class="table-responsive box">
+	<table class="table thead-light table-striped table-white box2">
+		<thead>
+			<tr class="table-warning">
+				<th>
+					@Html.DisplayNameFor(model => model.ProjectName)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.Status)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.TaskName)
+				</th>
+				<th>
+					OwnerFirstName
+				</th>
+				<th>
+					OwnerLastName
+				</th>
+				
+				<th>
+					@Html.DisplayNameFor(model => model.TaskOwnerID)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.Details)
+				</th>
+
+				<th></th>
+				<th></th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td>
+						@Html.DisplayFor(modelItem => item.ProjectName)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Status)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.TaskName)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.TaskOwnerFirstName)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.TaskOwnerLastName)
+					</td>
+					
+					<td>
+						@Html.DisplayFor(modelItem => item.TaskOwnerID)
+					</td>
+					<td class="lessertext">
+						@Html.DisplayFor(modelItem => item.Details)
+					</td>
+
+
+					<td>
+						@Html.ActionLink("Edit", "Edit", new { Id = item.Id }, htmlAttributes: new { @class = "btn btn-primary", @role = "button" })
+					</td>
+					<td>
+						@Html.ActionLink("Details", "Details", new { Id = item.Id }, htmlAttributes: new { @class = "btn btn-info", @role = "button" })
+					</td>
+					<td>
+						@Html.ActionLink("Delete", "Delete", new { Id = item.Id }, htmlAttributes: new { @class = "btn btn-danger", @role = "button" })
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>
+<br>
+<br>
+<br>
+<br>

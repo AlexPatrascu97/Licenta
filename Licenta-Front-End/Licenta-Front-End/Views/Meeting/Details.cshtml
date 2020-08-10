@@ -1,0 +1,63 @@
+﻿@model Licenta_Front_End.Models.Meeting
+
+@{
+	ViewData["Title"] = "Details";
+}
+
+
+<div>
+	<hr />
+	<dl class="row box">
+		<dt class="col-sm-2 butoane"></dt>
+		<dd class="col-sm-10"></dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Id)
+		</dt>
+		<dd class="col-sm-10">
+			<textarea asp-for="Id" class="form-control" value="model => model.Id" id="exampleFormControlTextarea" rows="1" readonly="readonly" style="resize:none;"></textarea>
+		</dd>
+		<dt class="col-sm-2 butoane">
+			@Html.DisplayNameFor(model => model.MeetingName)
+		</dt>
+		<dd class="col-sm-10">
+			<textarea asp-for="MeetingName" class="form-control" value="model => model.MeetingName" id="exampleFormControlTextarea" rows="1" readonly="readonly" style="resize:none;"></textarea>
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Link)
+		</dt>
+		<dd class="col-sm-10">
+			<textarea asp-for="Link" class="form-control" value="model => model.Link" id="exampleFormControlTextarea" rows="1" readonly="readonly" style="resize:none;"></textarea>
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Date)
+		</dt>
+		<dd class="col-sm-10">
+			<textarea asp-for="Date" class="form-control" value="model => model.Date" id="exampleFormControlTextarea" rows="1" readonly="readonly" style="resize:none;"></textarea>
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Details)
+		</dt>
+		<dd class="col-sm-10">
+			<textarea asp-for="Details" class="form-control" value="model => model.Details" id="exampleFormControlTextarea" rows="1" readonly="readonly" style="resize:none;"></textarea>
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.ProjectName)
+		</dt>
+		<dd class="col-sm-10">
+			<textarea asp-for="ProjectName" class="form-control" value="model => model.ProjectName" id="exampleFormControlTextarea" rows="1" readonly="readonly" style="resize:none;"></textarea>
+		</dd>
+
+		<div class="butoane">
+			@Html.ActionLink("Edit", "Edit", new { Id = Model.Id }, new { @class = "btn btn-warning", @role = "button" })
+			<a asp-action="Index" class="btn btn-warning">Back to List</a>
+			<br>
+			<br>
+		</div>
+		<br>
+		<br>
+	</dl>
+
+</div>
+
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+

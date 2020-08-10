@@ -1,0 +1,61 @@
+﻿@model Licenta_Front_End.Models.Project
+
+@{
+	ViewData["Title"] = "Details";
+}
+
+
+	<div>
+
+		<hr />
+		<dl class="row box">
+			<dt class="col-sm-2 butoane"></dt>
+			<dd class="col-sm-10"></dd>
+			<dt class="col-sm-2 butoane">
+				Project Name
+			</dt>
+			<dd class="col-sm-10 butoane">
+				<textarea asp-for="ProjectName" class="form-control" value="model => model.ProjectName" id="exampleFormControlTextarea" rows="1" readonly="readonly" style="resize:none;"></textarea>
+			</dd>
+			<dt class="col-sm-2">
+				Start Date
+			</dt>
+			<dd class="col-sm-10">
+				<textarea asp-for="StartDate" class="form-control" value="model => model.StartDate" id="exampleFormControlTextarea" rows="1" readonly="readonly" style="resize:none;"></textarea>
+			</dd>
+			<dt class="col-sm-2">
+				Allocated Money
+			</dt>
+			<dd class="col-sm-10">
+				<textarea asp-for="AllocatedMoney" class="form-control" value="model => model.AllocatedMoney" id="exampleFormControlTextarea" rows="1" readonly="readonly" style="resize:none;"></textarea>
+			</dd>
+			<dt class="col-sm-2">
+				Client Name
+			</dt>
+			<dd class="col-sm-10">
+				<textarea asp-for="ClientName" class="form-control" value="model => model.ClientName" id="exampleFormControlTextarea" rows="1" readonly="readonly" style="resize:none;"></textarea>
+			</dd>
+			<dt class="col-sm-2">
+				@Html.DisplayNameFor(model => model.Detail)
+			</dt>
+			<dd class="col-sm-10">
+				<textarea asp-for="Detail" class="form-control" value="model => model.Detail" id="exampleFormControlTextareaRedeem" rows="5" readonly="readonly"></textarea>
+			</dd>
+
+
+			<br>
+			<div class="butoane">
+				<a asp-action="IndexForLeader" class="btn btn-warning">Back to List</a>
+				<br>
+				<br>
+			</div>
+			<br>
+			<br>
+		</dl>
+		<br>
+		<br>
+	</div>
+<br>
+<br>
+
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;

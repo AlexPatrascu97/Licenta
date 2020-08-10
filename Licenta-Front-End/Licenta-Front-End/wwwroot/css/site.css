@@ -1,0 +1,165 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+@media only screen and (max-width: 1000px) {
+	a.navbar-brand {
+		display: none;
+	}
+	.spacers {
+		display: none;
+	}
+}
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+
+.logare {
+	background-color: #eba731;
+}
+
+a {
+  color: #0366d6;
+}
+
+#exampleFormControlTextareaRedeem {
+	/*margin-top: 0px;
+	margin-bottom: 30px;*/
+	height: 300px;
+	/*margin-left: 30px;
+	width: 800px;*/
+}
+
+.nav-item a:hover {
+	background: #90ee90;
+	border: 0px solid #132c48;
+	margin: 0px;
+	outline-offset: 0px;
+	border-collapse: separate;
+	border-radius: 30px;
+	-moz-border-radius: 2px;
+}
+
+.btn-primary {
+	color: #fff;
+	background-color: #1b6ec2;
+	border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+	/* Margin bottom by footer height */
+	margin-bottom: 60px;
+	margin: 0;
+}
+
+.bckimg {
+	background-image: url("https://images.wallpaperscraft.com/image/jungle_fantasy_deer_butterflies_night_trees_102121_1920x1080.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+}
+
+.footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	white-space: nowrap;
+	line-height: 60px; /* Vertically center the text there */
+	background: white;
+	
+}
+
+.box {
+	background: white;
+	border: 2px solid #132c48;
+	margin: 10px;
+	outline-offset: 15px;
+	border-collapse: separate;
+	border-radius: 25px;
+	-moz-border-radius: 6px;
+}
+
+.box2 {
+	background: white;
+}
+
+.btn-grad {
+	background-image: linear-gradient(to right, #16A085 0%, #F4D03F 51%, #16A085 100%)
+}
+
+.btn-grad:hover {
+	background-position: right center;
+}
+
+.navalx {
+	color: blue;
+	background-color: yellow;
+}
+
+textarea {
+	width: 300px;
+	height: 150px;
+}
+
+.privacy {
+	padding-left: 30px;
+	padding-right: 30px;
+	outline-offset: 15px;
+}
+
+.butoane {
+	padding-left:30px;
+	padding-top:10px;
+	padding-bottom:20px;
+}
+
+.lessertext {
+	white-space: nowrap;
+	max-width: 100px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}

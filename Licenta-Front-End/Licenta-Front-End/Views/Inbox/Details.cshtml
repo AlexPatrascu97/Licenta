@@ -1,0 +1,58 @@
+﻿@model Licenta_Front_End.Models.Inbox
+
+@{
+	ViewData["Title"] = "Details";
+}
+
+
+
+<div>
+	<hr />
+	<dl class="row box d-flex justify-content-center">
+		<dt class="col-sm-2">
+		</dt>
+		<dd class="col-sm-10">
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Id)
+		</dt>
+		<dd class="col-sm-10">
+			<textarea asp-for="Id" class="form-control" value="model => model.Id" id="exampleFormControlTextarea" rows="1" readonly="readonly" style="resize:none;"></textarea>
+		</dd>
+		<dt class="col-sm-2 butoane">
+			@Html.DisplayNameFor(model => model.Recipient)
+		</dt>
+		<dd class="col-sm-10">
+			<textarea asp-for="Recipient" class="form-control" value="model => model.Recipient" id="exampleFormControlTextarea" rows="1" readonly="readonly" style="resize:none;"></textarea>
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Sender)
+		</dt>
+		<dd class="col-sm-10">
+			<textarea asp-for="Sender" class="form-control" value="model => model.Sender id="exampleFormControlTextarea" rows="1" readonly="readonly" style="resize:none;"></textarea>
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Message)
+		</dt>
+		<dd class="col-sm-10">
+			<textarea asp-for="Message" class="form-control" value="model => model.Message" id="exampleFormControlTextarea" rows="1" readonly="readonly" style="resize:none;"></textarea>
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Status)
+		</dt>
+		<dd class="col-sm-10">
+			<textarea asp-for="Status" class="form-control" value="model => model.Status" id="exampleFormControlTextarea" rows="1" readonly="readonly" style="resize:none;"></textarea>
+		</dd>
+
+		<br>
+		<div class="butoane">
+			@Html.ActionLink("Edit", "Edit", new { Id = Model.Id }, new { @class = "btn btn-warning", @role = "button" })
+			<a asp-action="Index" class="btn btn-warning">Back to List</a>
+			<br>
+			<br>
+		</div>
+		<br>
+		<br>
+	</dl>
+</div>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;

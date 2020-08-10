@@ -1,0 +1,187 @@
+﻿@model IEnumerable<Licenta_Front_End.Models.Task>
+@using Microsoft.AspNetCore.Http;
+@{
+	ViewData["Title"] = "RedeemTasks";
+}
+
+
+<div class="table-responsive box">
+	<table class="table thead-light table-striped table-white box2">
+		<thead>
+			<tr class="bg-success">
+				<th>
+					Tasks Left In Projects
+				</th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				@if ((Context.Session.GetString("Role") == "Developer"))
+				{
+					<th></th>
+				}
+
+			</tr>
+			<tr class="table-warning">
+				<th>
+					Task Name
+				</th>
+				<th>
+					Project Name
+				</th>
+
+				<th>
+					Task Owner
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.Details)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.Status)
+				</th>
+				<th></th>
+				@if ((Context.Session.GetString("Role") == "Developer"))
+				{
+					<th></th>
+				}
+
+
+
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				@if (item.TaskOwnerID == null)
+				{
+					<tr>
+						<td style="font-weight: bold;">
+							@Html.DisplayFor(modelItem => item.TaskName)
+						</td>
+						<td>
+							@Html.DisplayFor(modelItem => item.ProjectName)
+						</td>
+
+						<td>
+							To Be Taken
+						</td>
+						<td class="lessertext">
+							@Html.DisplayFor(modelItem => item.Details)
+						</td>
+						<td>
+							@Html.DisplayFor(modelItem => item.Status)
+						</td>
+
+						@if (item.TaskOwnerID == null)
+						{
+							@if ((Context.Session.GetString("Role") == "Developer"))
+							{
+								<td>
+									@Html.ActionLink("Redeem", "Redeem", new { Id = item.Id }, htmlAttributes: new { @class = "btn btn-success", @role = "button" })
+								</td>
+							}
+						}
+						else
+						{
+							<td>
+								@Html.ActionLink("Task Taken", "Redeem", new { Id = item.Id }, htmlAttributes: new { @class = "btn btn-danger disabled", @role = "button" })
+							</td>
+						}
+
+						<td>
+							@Html.ActionLink("Details", "DetailsForRedeem", new { Id = item.Id }, htmlAttributes: new { @class = "btn btn-warning", @role = "button" })
+						</td>
+
+
+					</tr>
+				}
+			}
+		</tbody>
+	</table>
+</div>
+
+<br />
+<br />
+
+<div class="table-responsive box">
+	<table class="table thead-light table-striped table-white box2">
+		<thead>
+			<tr class="bg-success">
+				<th>
+					Tasks Taken In Projects
+				</th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+
+			</tr>
+			<tr class="table-warning">
+				<th>
+					Task Name
+				</th>
+				<th>
+					Project Name
+				</th>
+				<th>
+					Task Owner Name
+				</th>
+				
+				<th>
+					@Html.DisplayNameFor(model => model.Details)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.Status)
+				</th>
+				<th></th>
+
+
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{@if (item.TaskOwnerID != null)
+				{
+					<tr>
+						<td style="font-weight: bold;">
+							@Html.DisplayFor(modelItem => item.TaskName)
+						</td>
+						<td>
+							@Html.DisplayFor(modelItem => item.ProjectName)
+						</td>
+						<td>
+							@Html.DisplayFor(modelItem => item.TaskOwnerFirstName)
+							@Html.DisplayFor(modelItem => item.TaskOwnerLastName)
+						</td>
+						
+						<td class="lessertext">
+							@Html.DisplayFor(modelItem => item.Details)
+						</td>
+						<td>
+							@Html.DisplayFor(modelItem => item.Status)
+						</td>
+
+						@if (item.TaskOwnerID == null)
+						{
+							<td>
+								@Html.ActionLink("Redeem", "Redeem", new { Id = item.Id }, htmlAttributes: new { @class = "btn btn-success", @role = "button" })
+							</td>
+						}
+						else
+						{
+							<td>
+								@Html.ActionLink("Task Taken", "Redeem", new { Id = item.Id }, htmlAttributes: new { @class = "btn btn-danger disabled", @role = "button" })
+							</td>
+						}
+					</tr>
+				}
+		}
+		</tbody>
+	</table>
+</div>
+<br>
+<br>
+<br>
+<br>

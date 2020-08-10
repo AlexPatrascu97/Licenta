@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Licenta_Front_End.Models.Team>
+
+@{
+	ViewData["Title"] = "IndexLeader";
+}
+
+
+
+
+
+<div class="table-responsive box">
+	<table class="table thead-light table-striped table-white box2">
+
+		<thead>
+			<tr class="table-warning">
+
+				<th>
+					Project Name
+				</th>
+
+
+				<th></th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				<tr>
+
+					<td>
+						@Html.DisplayFor(modelItem => item.ProjectName)
+					</td>
+
+
+					<td>
+						@Html.ActionLink("Team Members", "TeamMembers", new { searching = item.ProjectName }, htmlAttributes: new { @class = "btn btn-primary", @role = "button" })
+					</td>
+
+					<td>
+						@Html.ActionLink("Add Member", "AddMember", new { leaderfn = item.TeamLeaderFirstName, leaderln = item.TeamLeaderLastName, projn = item.ProjectName }, htmlAttributes: new { @class = "btn btn-primary", @role = "button" })
+					</td>
+
+
+
+
+
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>
+<br>
+<br>
+<br>
+<br>

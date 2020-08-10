@@ -1,0 +1,64 @@
+﻿@model Licenta_Front_End.Models.Meeting
+@using Microsoft.AspNetCore.Http;
+
+@{
+	ViewData["Title"] = "DetailsForLeader";
+}
+
+<div>
+	<hr />
+	<dl class="row box">
+		<dt class="col-sm-2 butoane">
+			Meeting Name
+		</dt>
+		<dd class="col-sm-10 butoane">
+			<textarea asp-for="MeetingName" class="form-control" value="model => model.MeetingName" id="exampleFormControlTextarea" rows="1" readonly="readonly" style="resize:none;"></textarea>
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Link)
+		</dt>
+		<dd class="col-sm-10">
+			<textarea asp-for="Link" class="form-control" value="model => model.Link" id="exampleFormControlTextarea" rows="1" readonly="readonly" style="resize:none;"></textarea>
+
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Date)
+		</dt>
+		<dd class="col-sm-10">
+			<textarea asp-for="Date" class="form-control" value="model => model.Date" id="exampleFormControlTextarea" rows="1" readonly="readonly" style="resize:none;"></textarea>
+
+		</dd>
+		<dt class="col-sm-2">
+			Project Name
+		</dt>
+		<dd class="col-sm-10">
+			<textarea asp-for="ProjectName" class="form-control" value="model => model.ProjectName" id="exampleFormControlTextarea" rows="1" readonly="readonly" style="resize:none;"></textarea>
+		</dd>
+		<dt class="col-sm-2">
+			Details
+		</dt>
+		<dd class="col-sm-10">
+			<textarea asp-for="Details" class="form-control" value="model => model.Details" id="exampleFormControlTextareaRedeem" rows="5" readonly="readonly"></textarea>
+
+		</dd>
+
+
+		<div class="butoane">
+			@if ((Context.Session.GetString("Role") != "Developer"))
+			{
+				@Html.ActionLink("Edit", "Edit", new { Id = Model.Id }, new { @class = "btn btn-warning", @role = "button" })
+			}
+			<a asp-action="IndexForDevAndLead" class="btn btn-warning">Back to List</a>
+			<br>
+			<br>
+		</div>
+		<br>
+		<br>
+	</dl>
+	<br>
+	<br>
+</div>
+<br>
+<br>
+
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;

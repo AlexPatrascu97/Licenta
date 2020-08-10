@@ -1,0 +1,94 @@
+﻿@model IEnumerable<Licenta_Front_End.Models.Employee>
+
+@{
+	ViewData["Title"] = "IndexEmployeeeForLeader";
+}
+
+
+@using (Html.BeginForm("Index", "Employee", FormMethod.Get))
+{
+	<p>
+		<a asp-action="Create" class="btn btn-warning">Create New</a>
+		<input class="btn btn-warning" type="submit" value="Search" />
+	</p>
+	<br>
+	@Html.TextBox("searching", null, new { @class = "form-control" })
+	<br>
+
+}
+<br>
+
+
+<div class="table-responsive box">
+	<table class="table thead-light table-striped table-white box2">
+
+		<thead class="table-warning">
+			<tr>
+				<th>
+					@Html.DisplayNameFor(model => model.FirstName)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.LastName)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.Salary)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.DepartamentName)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.JobTitle)
+				</th>
+				
+				
+				<th>
+					@Html.DisplayNameFor(model => model.Role)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.Email)
+				</th>
+				
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td>
+						@Html.DisplayFor(modelItem => item.FirstName)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.LastName)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Salary)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.DepartamentName)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.JobTitle)
+					</td>
+					
+					
+					<td>
+						@Html.DisplayFor(modelItem => item.Role)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Email)
+					</td>
+					
+					<td>
+						@Html.ActionLink("Details", "Details", new { Id = item.Id }, htmlAttributes: new { @class = "btn btn-info", @role = "button" })
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>
+
+<br>
+<br>
+<br>
+<br>

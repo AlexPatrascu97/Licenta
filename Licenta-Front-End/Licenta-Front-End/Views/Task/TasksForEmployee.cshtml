@@ -1,0 +1,176 @@
+﻿@model IEnumerable<Licenta_Front_End.Models.Task>
+
+@{
+	ViewData["Title"] = "TasksForEmployee";
+}
+
+<div class="table-responsive box">
+	<table class="table thead-light table-striped table-white box2">
+		<thead>
+			<tr class="bg-success">
+				<th>
+					Active Tasks
+				</th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+			</tr>
+			<tr class="table-warning">
+				<th>
+					Task Name
+				</th>
+				<th>
+					Project Name
+				</th>
+				
+
+				<th>
+					@Html.DisplayNameFor(model => model.Details)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.Status)
+				</th>
+
+				<th></th>
+				<th></th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				@if (item.Status == "Ongoing")
+				{
+					<tr>
+						<td style="font-weight: bold;">
+							@Html.DisplayFor(modelItem => item.TaskName)
+						</td>
+						<td>
+							@Html.DisplayFor(modelItem => item.ProjectName)
+						</td>
+
+					
+
+						<td class="lessertext">
+							@Html.DisplayFor(modelItem => item.Details)
+						</td>
+
+						<td>
+							@Html.DisplayFor(modelItem => item.Status)
+						</td>
+
+						@if (item.Status == "Ongoing")
+						{
+							<td>
+								@Html.ActionLink("Complete", "TaskStatus", new { Id = item.Id }, htmlAttributes: new { @class = "btn btn-success", @role = "button" })
+							</td>
+						}
+						else
+						{
+							<td>
+								@Html.ActionLink("Complete", "TaskStatus", new { Id = item.Id }, htmlAttributes: new { @class = "btn btn-success disabled", @role = "button" })
+							</td>
+						}
+						<td>
+							@Html.ActionLink("Details", "Details", new { Id = item.Id }, htmlAttributes: new { @class = "btn btn-warning", @role = "button" })
+						</td>
+
+						<td>
+							@Html.ActionLink("Remove", "Remove", new { Id = item.Id }, htmlAttributes: new { @class = "btn btn-danger", @role = "button" })
+						</td>
+
+					</tr>
+					}
+				}
+			</tbody>
+	</table>
+</div>
+<br />
+<br />
+<div class="table-responsive box">
+	<table class="table thead-light table-striped table-white box2">
+		<thead>
+			<tr class="bg-success">
+				<th>
+					Tasks Archive
+				</th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+			</tr>
+			<tr class="table-warning">
+				<th>
+					Task Name
+				</th>
+				<th>
+					Project Name
+				</th>
+				
+
+				<th>
+					@Html.DisplayNameFor(model => model.Details)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.Status)
+				</th>
+
+				<th></th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				@if (item.Status == "Finished")
+				{
+					<tr>
+						<td style="font-weight: bold;">
+							@Html.DisplayFor(modelItem => item.TaskName)
+						</td>
+						<td>
+							@Html.DisplayFor(modelItem => item.ProjectName)
+						</td>
+
+						
+
+						<td class="lessertext">
+							@Html.DisplayFor(modelItem => item.Details)
+						</td>
+
+						<td>
+							@Html.DisplayFor(modelItem => item.Status)
+						</td>
+
+						@if (item.Status == "Ongoing")
+						{
+							<td>
+								@Html.ActionLink("Complete", "TaskStatus", new { Id = item.Id }, htmlAttributes: new { @class = "btn btn-primary", @role = "button" })
+							</td>
+						}
+						else
+						{
+							<td>
+								@Html.ActionLink("Complete", "TaskStatus", new { Id = item.Id }, htmlAttributes: new { @class = "btn btn-primary disabled", @role = "button" })
+							</td>
+						}
+						<td>
+							@Html.ActionLink("Details", "EditTasks", new { Id = item.Id }, htmlAttributes: new { @class = "btn btn-primary", @role = "button" })
+						</td>
+
+						
+
+					</tr>
+					}
+				}
+			</tbody>
+	</table>
+</div>
+<br>
+<br>
+<br>
+<br>

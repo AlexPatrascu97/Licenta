@@ -1,0 +1,53 @@
+﻿@model Licenta_Front_End.Models.Meeting
+
+@{
+	ViewData["Title"] = "EditForLeader";
+}
+
+<hr />
+<div class="row box">
+	<div class="col-md-4">
+		<form asp-action="Edit">
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			<div class="form-group">
+				<label asp-for="MeetingName" class="control-label"></label>
+				<input asp-for="MeetingName" class="form-control" />
+				<span asp-validation-for="MeetingName" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Link" class="control-label"></label>
+				<input asp-for="Link" class="form-control" />
+				<span asp-validation-for="Link" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Date" class="control-label"></label>
+				<input asp-for="Date" class="form-control" />
+				<span asp-validation-for="Date" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Details" class="control-label"></label>
+				<input asp-for="Details" class="form-control" />
+				<span asp-validation-for="Details" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="ProjectName" class="control-label"></label>
+				<input asp-for="ProjectName" class="form-control" />
+				<span asp-validation-for="ProjectName" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<input type="submit" value="Save" class="btn btn-primary" />
+			</div>
+			<div>
+				<a asp-action="IndexForDevAndLead" class="btn btn-primary">Back to List</a>
+			</div>
+			<br>
+			<br>
+		</form>
+	</div>
+
+</div>
+
+@section Scripts {
+	@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

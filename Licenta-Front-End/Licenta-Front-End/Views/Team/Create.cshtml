@@ -1,0 +1,55 @@
+﻿@model Licenta_Front_End.Models.Team
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<hr />
+<div class="row box ">
+	<div class="col-md-5 butoane">
+		<form asp-action="Create">
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			<div class="form-group">
+				<label asp-for="FirstName" class="control-label"></label>
+				<input asp-for="FirstName" class="form-control" />
+				<span asp-validation-for="FirstName" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="LastName" class="control-label"></label>
+				<input asp-for="LastName" class="form-control" />
+				<span asp-validation-for="LastName" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="ProjectName" class="control-label"></label>
+				<input asp-for="ProjectName" class="form-control" />
+				<span asp-validation-for="ProjectName" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="TeamLeaderFirstName" class="control-label"></label>
+				<input asp-for="TeamLeaderFirstName" class="form-control" />
+				<span asp-validation-for="TeamLeaderFirstName" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="TeamLeaderLastName" class="control-label"></label>
+				<input asp-for="TeamLeaderLastName" class="form-control" />
+				<span asp-validation-for="TeamLeaderLastName" class="text-danger"></span>
+			</div>
+
+			<div class="form-group">
+				<input type="submit" value="Create" class="btn btn-primary " />
+			</div>
+			<div>
+				<a asp-action="Index" class="btn btn-danger ">Back to List</a>
+			</div>
+		</form>
+	</div>
+</div>
+<br>
+<br>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

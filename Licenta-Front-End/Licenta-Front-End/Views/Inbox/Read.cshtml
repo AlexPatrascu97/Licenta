@@ -1,0 +1,33 @@
+﻿@model Licenta_Front_End.Models.Inbox
+
+@{
+	ViewData["Title"] = "Read";
+}
+
+
+
+<div>
+	<div class="card text-center">
+		<div class="card-body">
+			<h5 class="card-title">@Html.DisplayFor(model => model.Title)</h5>
+			<textarea asp-for="Message" class="form-control" value="model => model.Message" id="exampleFormControlTextareaRedeem" rows="1" readonly="readonly"></textarea>
+
+
+		</div>
+		<br>
+		<div class="butoane">
+			@Html.ActionLink("Reply", "Reply", new { sender = Model.Sender }, new { @class = "btn btn-warning", @role = "button" })
+			<a asp-action="EmployeeMails" class="btn btn-warning">Back to List</a>
+			<br>
+			<br>
+		</div>
+		<br>
+		<br>
+	</div>
+	<br>
+	<br>
+</div>
+<br>
+<br>
+
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;

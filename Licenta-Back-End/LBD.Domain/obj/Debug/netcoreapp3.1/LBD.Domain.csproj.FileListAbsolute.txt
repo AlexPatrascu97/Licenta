@@ -1,0 +1,17 @@
+C:\Users\Frosch\source\repos\Licenta-Back-End\LBD.Domain\bin\Debug\netcoreapp3.1\LBD.Domain.deps.json
+C:\Users\Frosch\source\repos\Licenta-Back-End\LBD.Domain\bin\Debug\netcoreapp3.1\LBD.Domain.dll
+C:\Users\Frosch\source\repos\Licenta-Back-End\LBD.Domain\bin\Debug\netcoreapp3.1\LBD.Domain.pdb
+C:\Users\Frosch\source\repos\Licenta-Back-End\LBD.Domain\obj\Debug\netcoreapp3.1\LBD.Domain.csprojAssemblyReference.cache
+C:\Users\Frosch\source\repos\Licenta-Back-End\LBD.Domain\obj\Debug\netcoreapp3.1\LBD.Domain.AssemblyInfoInputs.cache
+C:\Users\Frosch\source\repos\Licenta-Back-End\LBD.Domain\obj\Debug\netcoreapp3.1\LBD.Domain.AssemblyInfo.cs
+C:\Users\Frosch\source\repos\Licenta-Back-End\LBD.Domain\obj\Debug\netcoreapp3.1\LBD.Domain.dll
+C:\Users\Frosch\source\repos\Licenta-Back-End\LBD.Domain\obj\Debug\netcoreapp3.1\LBD.Domain.pdb
+E:\Licenta\Licenta-Back-End\LBD.Domain\bin\Debug\netcoreapp3.1\LBD.Domain.deps.json
+E:\Licenta\Licenta-Back-End\LBD.Domain\bin\Debug\netcoreapp3.1\LBD.Domain.dll
+E:\Licenta\Licenta-Back-End\LBD.Domain\bin\Debug\netcoreapp3.1\LBD.Domain.pdb
+E:\Licenta\Licenta-Back-End\LBD.Domain\obj\Debug\netcoreapp3.1\LBD.Domain.csprojAssemblyReference.cache
+E:\Licenta\Licenta-Back-End\LBD.Domain\obj\Debug\netcoreapp3.1\LBD.Domain.AssemblyInfoInputs.cache
+E:\Licenta\Licenta-Back-End\LBD.Domain\obj\Debug\netcoreapp3.1\LBD.Domain.AssemblyInfo.cs
+E:\Licenta\Licenta-Back-End\LBD.Domain\obj\Debug\netcoreapp3.1\LBD.Domain.csproj.CoreCompileInputs.cache
+E:\Licenta\Licenta-Back-End\LBD.Domain\obj\Debug\netcoreapp3.1\LBD.Domain.dll
+E:\Licenta\Licenta-Back-End\LBD.Domain\obj\Debug\netcoreapp3.1\LBD.Domain.pdb

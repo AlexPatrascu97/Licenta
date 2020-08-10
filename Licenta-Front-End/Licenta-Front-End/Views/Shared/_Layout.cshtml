@@ -1,0 +1,208 @@
+﻿@using Microsoft.AspNetCore.Http;
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@ViewData["Title"] - Licenta_Front_End</title>
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+	<link href="bootstrap.css" rel="stylesheet" media="screen">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body class="bckimg">
+
+	<header>
+		@if ((Context.Session.GetString("FirstName") != null) && (Context.Session.GetString("LastName") != null))
+		{
+			<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+				<div class="container">
+					@if ((Context.Session.GetString("FirstName") != null) && (Context.Session.GetString("LastName") != null))
+					{
+						<a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">P.M.W.A.</a>
+					}
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+							aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+						<ul class="navbar-nav flex-grow-1">
+
+							@if ((Context.Session.GetString("FirstName") != null) && (Context.Session.GetString("LastName") != null))
+							{
+								<!-- Home Navigation -->
+								<li class="nav-item">
+									<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+
+								</li>
+							}
+							<!-- Employee List Navigation -->
+							@if ((Context.Session.GetString("Role") == "Admin"))
+							{
+								<li class="nav-item ">
+									<a class="nav-link text-dark" asp-area="" asp-controller="Employee" asp-action="Index">Employees</a>
+								</li>
+							}
+							<!-- Teams List Navigation -->
+							@if ((Context.Session.GetString("Role") == "Admin"))
+							{
+								<li class="nav-item ">
+									<a class="nav-link text-dark" asp-area="" asp-controller="Team" asp-action="Index">Teams</a>
+								</li>
+							}
+
+							<!-- Employees My Tasks-->
+							@if ((Context.Session.GetString("Role") == "Developer"))
+							{
+								<li class="nav-item ">
+									<a class="nav-link text-dark" asp-area="" asp-controller="Task" asp-action="TasksForEmployee">MyTasks</a>
+								</li>
+							}
+
+							<!-- Employees My Teams-->
+							@if ((Context.Session.GetString("Role") == "Developer"))
+							{
+								<li class="nav-item ">
+									<a class="nav-link text-dark" asp-area="" asp-controller="Team" asp-action="IndexEmpProjects">MyTeams</a>
+								</li>
+							}
+
+							<!-- Employees Redeem Taks-->
+							@if ((Context.Session.GetString("Role") == "Developer"))
+							{
+								<li class="nav-item ">
+									<a class="nav-link text-dark" asp-area="" asp-controller="Task" asp-action="RedeemTasks">Redeem Tasks</a>
+								</li>
+							}
+
+
+
+							<!-- Project List Navigation -->
+							@if ((Context.Session.GetString("Role") == "Admin"))
+							{
+								<li class="nav-item ">
+									<a class="nav-link text-dark" asp-area="" asp-controller="Project" asp-action="Index">Projects</a>
+								</li>
+							}
+
+
+							<!-- Tasks List Navigation -->
+							@if ((Context.Session.GetString("Role") == "Admin"))
+							{
+								<li class="nav-item ">
+									<a class="nav-link text-dark" asp-area="" asp-controller="Task" asp-action="Index">Tasks</a>
+								</li>
+							}
+
+							<!-- Inbox List Navigation -->
+							@if ((Context.Session.GetString("Role") == "Admin"))
+							{
+								<li class="nav-item ">
+									<a class="nav-link text-dark" asp-area="" asp-controller="Inbox" asp-action="Index">Inboxes</a>
+								</li>
+							}
+							<!-- Meeting List Navigation -->
+							@if ((Context.Session.GetString("Role") == "Admin"))
+							{
+								<li class="nav-item ">
+									<a class="nav-link text-dark" asp-area="" asp-controller="Meeting" asp-action="Index">Meetings</a>
+								</li>
+							}
+
+							<!-- Leader Projects List Navigation -->
+							@if ((Context.Session.GetString("Role") == "Leader"))
+							{
+								<li class="nav-item ">
+									<a class="nav-link text-dark" asp-area="" asp-controller="Team" asp-action="IndexLeader">Teams</a>
+								</li>
+							}
+
+							<!--  Leader Can see Projects -->
+							@if ((Context.Session.GetString("Role") == "Leader"))
+							{
+								<li class="nav-item ">
+									<a class="nav-link text-dark" asp-area="" asp-controller="Project" asp-action="IndexForLeader">Projects</a>
+								</li>
+							}
+
+							<!--  Leader Can Add Tasks -->
+							@if ((Context.Session.GetString("Role") == "Leader"))
+							{
+								<li class="nav-item ">
+									<a class="nav-link text-dark" asp-area="" asp-controller="Task" asp-action="IndexForLeader">Project Tasks</a>
+								</li>
+							}
+
+
+							<!--Leaders Check Redeem Taks-->
+							@if ((Context.Session.GetString("Role") == "Leader"))
+							{
+								<li class="nav-item ">
+									<a class="nav-link text-dark" asp-area="" asp-controller="Task" asp-action="RedeemTasks">Task Status</a>
+								</li>
+							}
+
+							@if ((Context.Session.GetString("Role") == "Developer") || (Context.Session.GetString("Role") == "Leader"))
+							{
+								<li class="nav-item ">
+									<a class="nav-link text-dark" asp-area="" asp-controller="Meeting" asp-action="IndexForDevAndLead">Meetings</a>
+								</li>
+							}
+
+							<li class="nav-item spacers">
+
+								&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+							</li>
+
+
+							<!-- Employees Inbox-->
+							@if ((Context.Session.GetString("Role") == "Developer") || (Context.Session.GetString("Role") == "Leader") || (Context.Session.GetString("Role") == "Admin"))
+							{
+								<li class="nav-item ">
+									<a class="nav-link text-dark" asp-area="" asp-controller="Inbox" asp-action="EmployeeMails"> Mail (@Context.Session.GetString("InboxStatus")) </a>
+								</li>
+							}
+
+							@if ((Context.Session.GetString("FirstName") != null) && (Context.Session.GetString("LastName") != null))
+							{
+								<li class="nav-item ">
+									<a class="nav-link text-dark" asp-area="" asp-controller="Employee" asp-action="LogOut">Log Out</a>
+								</li>
+							}
+
+						</ul>
+					</div>
+				</div>
+			</nav>
+		}
+	</header>
+	<div class="container">
+		<main role="main" class="pb-3">
+			@RenderBody()
+		</main>
+	</div>
+
+	<footer class="border-top footer text-muted">
+		@if ((Context.Session.GetString("FirstName") != null) && (Context.Session.GetString("LastName") != null))
+		{
+			<div class="container">
+				&copy; 2020 - Patrascu Alexandru Mihail Grupa 454 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+			</div>
+		}
+	</footer>
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="~/js/site.js" asp-append-version="true"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	@RenderSection("Scripts", required: false)
+</body>
+</html>

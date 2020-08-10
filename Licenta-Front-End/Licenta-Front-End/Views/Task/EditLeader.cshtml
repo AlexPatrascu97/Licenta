@@ -1,0 +1,49 @@
+﻿@model Licenta_Front_End.Models.Task
+
+@{
+	ViewData["Title"] = "Edit";
+}
+
+<hr />
+<div class="row box d-flex justify-content-center">
+	<div class="col-md-5 butoane">
+		<form asp-action="Edit">
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			<div class="form-group">
+				<label asp-for="ProjectName" class="control-label"></label>
+				<input asp-for="ProjectName" class="form-control" />
+				<span asp-validation-for="ProjectName" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="sprintNumber" class="control-label"></label>
+				<input asp-for="sprintNumber" class="form-control" />
+				<span asp-validation-for="sprintNumber" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="TaskOwnerID" class="control-label"></label>
+				<input asp-for="TaskOwnerID" class="form-control" />
+				<span asp-validation-for="TaskOwnerID" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Details" class="control-label"></label>
+				<input asp-for="Details" class="form-control" />
+				<span asp-validation-for="Details" class="text-danger"></span>
+			</div>
+
+			<div class="form-group">
+				<input type="submit" value="Save" class="btn btn-primary" />
+			</div>
+
+
+			<div>
+				<a asp-action="IndexLeader" class="btn btn-danger">Back to List</a>
+			</div>
+
+		</form>
+	</div>
+</div>
+
+
+@section Scripts {
+	@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,77 @@
+﻿@model Licenta_Front_End.Models.Employee
+
+@{
+	ViewData["Title"] = "Details";
+}
+
+
+
+	<div>
+		<hr />
+		<dl class="row box">
+			<dt class="col-sm-2 butoane"></dt>
+			<dd class="col-sm-10"></dd>
+			<dt class="col-sm-2">
+				@Html.DisplayNameFor(model => model.Id)
+			</dt>
+			<dd class="col-sm-10">
+				<textarea asp-for="Id" class="form-control" value="model => model.Id" id="exampleFormControlTextarea" rows="1" readonly="readonly" style="resize:none;"></textarea>
+			</dd>
+			<dt class="col-sm-2 butoane">
+				@Html.DisplayNameFor(model => model.FirstName)
+			</dt>
+			<dd class="col-sm-10">
+				<textarea asp-for="FirstName" class="form-control" value="model => model.FirstName" id="exampleFormControlTextarea" rows="1" readonly="readonly" style="resize:none;"></textarea>
+			</dd>
+			<dt class="col-sm-2">
+				@Html.DisplayNameFor(model => model.LastName)
+			</dt>
+			<dd class="col-sm-10">
+				<textarea asp-for="LastName" class="form-control" value="model => model.LastName" id="exampleFormControlTextarea" rows="1" readonly="readonly" style="resize:none;"></textarea>
+			</dd>
+			<dt class="col-sm-2">
+				@Html.DisplayNameFor(model => model.Salary)
+			</dt>
+			<dd class="col-sm-10">
+				<textarea asp-for="Salary" class="form-control" value="model => model.Salary" id="exampleFormControlTextarea" rows="1" readonly="readonly" style="resize:none;"></textarea>
+			</dd>
+			<dt class="col-sm-2">
+				@Html.DisplayNameFor(model => model.DepartamentName)
+			</dt>
+			<dd class="col-sm-10">
+				<textarea asp-for="DepartamentName" class="form-control" value="model => model.DepartamentName" id="exampleFormControlTextarea" rows="1" readonly="readonly" style="resize:none;"></textarea>
+			</dd>
+			<dt class="col-sm-2">
+				@Html.DisplayNameFor(model => model.JobTitle)
+			</dt>
+			<dd class="col-sm-10">
+				<textarea asp-for="JobTitle" class="form-control" value="model => model.JobTitle" id="exampleFormControlTextarea" rows="1" readonly="readonly" style="resize:none;"></textarea>
+			</dd>
+
+			<dt class="col-sm-2">
+				@Html.DisplayNameFor(model => model.Password)
+			</dt>
+			<dd class="col-sm-10">
+				<textarea asp-for="Password" class="form-control" value="model => model.Password" id="exampleFormControlTextarea" rows="1" readonly="readonly" style="resize:none;"></textarea>
+			</dd>
+			<dt class="col-sm-2">
+				@Html.DisplayNameFor(model => model.Role)
+			</dt>
+			<dd class="col-sm-10">
+				<textarea asp-for="Role" class="form-control" value="model => model.Role" id="exampleFormControlTextarea" rows="1" readonly="readonly" style="resize:none;"></textarea>
+			</dd>
+
+			<br>
+			<div class="butoane">
+				@Html.ActionLink("Edit", "Edit", new { Id = Model.Id }, new { @class = "btn btn-warning", @role = "button" })
+				<a asp-action="Index" class="btn btn-warning">Back to List</a>
+				<br>
+				<br>
+			</div>
+			<br>
+			<br>
+		</dl>
+		
+	</div>
+
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
