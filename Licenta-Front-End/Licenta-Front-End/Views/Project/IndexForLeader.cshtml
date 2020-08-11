@@ -52,7 +52,7 @@
 
 						
 						<td>
-							@Html.ActionLink("Details", "DetailsLeader", new { Id = item.Id }, htmlAttributes: new { @class = "btn btn-info", @role = "button" })
+							@Html.ActionLink("Details", "DetailsLeader", new { Id = item.Id }, htmlAttributes: new { @class = "btn btn-warning", @role = "button" , @style = "background-color: #E6B471;" })
 						</td>
 
 					</tr>
@@ -64,7 +64,7 @@
 
 		<br>
 		<p class="butoane">
-			<a asp-action="CreateProjectLeader" class="btn btn-warning butoane">Add Project</a>
+			<a asp-action="CreateProjectLeader" class="btn btn-primary butoane" style = "background-color: #039E67; Color: black; ">Add Project</a>
 		</p>
 		<br>
 	</div>

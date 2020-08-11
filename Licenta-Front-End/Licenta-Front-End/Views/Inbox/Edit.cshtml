@@ -8,8 +8,11 @@
 <div class="row box">
     <div class="col-md-4">
 		<form asp-action="Edit">
+			<br>
+			<br>
 			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
-			
+			<br>
+			<br>
 			<div class="form-group">
 				<label asp-for="Recipient" class="control-label"></label>
 				<input asp-for="Recipient" class="form-control" />
@@ -32,10 +35,10 @@
 			</div>
 
 			<div class="form-group">
-				<input type="submit" value="Save" class="btn btn-primary" />
+				<input type="submit" value="Save" class="btn btn-primary"  style = "background-color: #039E67; Color: black; "/>
 			</div>
 			<div>
-				<a asp-action="Index" class="btn btn-primary">Back to List</a>
+				<a asp-action="Index" class="btn btn-warning" style = "background-color: #E6B471;color: black;">Back to List</a>
 			</div>
 			<br>
 			<br>

@@ -65,21 +65,21 @@
 						@if (item.Status == "Ongoing")
 						{
 							<td>
-								@Html.ActionLink("Complete", "TaskStatus", new { Id = item.Id }, htmlAttributes: new { @class = "btn btn-success", @role = "button" })
+								@Html.ActionLink("Complete", "TaskStatus", new { Id = item.Id }, htmlAttributes: new { @class = "btn btn-success", @role = "button" , @style = "background-color: #039E67; Color: black; " })
 							</td>
 						}
 						else
 						{
 							<td>
-								@Html.ActionLink("Complete", "TaskStatus", new { Id = item.Id }, htmlAttributes: new { @class = "btn btn-success disabled", @role = "button" })
+								@Html.ActionLink("Complete", "TaskStatus", new { Id = item.Id }, htmlAttributes: new { @class = "btn btn-success disabled", @role = "button" , @style = "background-color: #039E67; Color: black; " })
 							</td>
 						}
 						<td>
-							@Html.ActionLink("Details", "Details", new { Id = item.Id }, htmlAttributes: new { @class = "btn btn-warning", @role = "button" })
+							@Html.ActionLink("Details", "Details", new { Id = item.Id }, htmlAttributes: new { @class = "btn btn-warning", @role = "button" , @style = "background-color: #E6B471; color:black;" })
 						</td>
 
 						<td>
-							@Html.ActionLink("Remove", "Remove", new { Id = item.Id }, htmlAttributes: new { @class = "btn btn-danger", @role = "button" })
+							@Html.ActionLink("Remove", "Remove", new { Id = item.Id }, htmlAttributes: new { @class = "btn btn-danger", @role = "button", @style = "background-color: #CC621B; border-color: #CC621B; color: black;" })
 						</td>
 
 					</tr>
@@ -149,17 +149,17 @@
 						@if (item.Status == "Ongoing")
 						{
 							<td>
-								@Html.ActionLink("Complete", "TaskStatus", new { Id = item.Id }, htmlAttributes: new { @class = "btn btn-primary", @role = "button" })
+								@Html.ActionLink("Complete", "TaskStatus", new { Id = item.Id }, htmlAttributes: new { @class = "btn btn-primary", @role = "button" , @style = "background-color: #039E67; Color: black; " })
 							</td>
 						}
 						else
 						{
 							<td>
-								@Html.ActionLink("Complete", "TaskStatus", new { Id = item.Id }, htmlAttributes: new { @class = "btn btn-primary disabled", @role = "button" })
+								@Html.ActionLink("Complete", "TaskStatus", new { Id = item.Id }, htmlAttributes: new { @class = "btn btn-primary disabled", @role = "button" , @style = "background-color: #039E67; Color: black; " })
 							</td>
 						}
 						<td>
-							@Html.ActionLink("Details", "EditTasks", new { Id = item.Id }, htmlAttributes: new { @class = "btn btn-primary", @role = "button" })
+							@Html.ActionLink("Details", "EditTasks", new { Id = item.Id }, htmlAttributes: new { @class = "btn btn-warning", @role = "button" , @style = "background-color: #E6B471; color:black;" })
 						</td>
 
 						

@@ -78,19 +78,19 @@
 							@if ((Context.Session.GetString("Role") == "Developer"))
 							{
 								<td>
-									@Html.ActionLink("Redeem", "Redeem", new { Id = item.Id }, htmlAttributes: new { @class = "btn btn-success", @role = "button" })
+									@Html.ActionLink("Take Task", "Redeem", new { Id = item.Id }, htmlAttributes: new { @class = "btn btn-success", @role = "button" , @style = "background-color: #039E67; Color: black; " })
 								</td>
 							}
 						}
 						else
 						{
 							<td>
-								@Html.ActionLink("Task Taken", "Redeem", new { Id = item.Id }, htmlAttributes: new { @class = "btn btn-danger disabled", @role = "button" })
+								@Html.ActionLink("Task Taken", "Redeem", new { Id = item.Id }, htmlAttributes: new { @class = "btn btn-primary disabled", @role = "button" , @style = "background-color: #CC621B; border-color: #CC621B; color: black;" })
 							</td>
 						}
 
 						<td>
-							@Html.ActionLink("Details", "DetailsForRedeem", new { Id = item.Id }, htmlAttributes: new { @class = "btn btn-warning", @role = "button" })
+							@Html.ActionLink("Details", "DetailsForRedeem", new { Id = item.Id }, htmlAttributes: new { @class = "btn btn-warning", @role = "button" , @style = "background-color: #E6B471;" })
 						</td>
 
 
@@ -172,7 +172,7 @@
 						else
 						{
 							<td>
-								@Html.ActionLink("Task Taken", "Redeem", new { Id = item.Id }, htmlAttributes: new { @class = "btn btn-danger disabled", @role = "button" })
+								@Html.ActionLink("Task Taken", "Redeem", new { Id = item.Id }, htmlAttributes: new { @class = "btn btn-danger disabled", @role = "button" , @style = "background-color: #CC621B; border-color: #CC621B; color: black;" })
 							</td>
 						}
 					</tr>

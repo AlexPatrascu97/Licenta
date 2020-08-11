@@ -34,11 +34,11 @@
 
 
 					<td>
-						@Html.ActionLink("Team Members", "TeamMembers", new { searching = item.ProjectName }, htmlAttributes: new { @class = "btn btn-primary", @role = "button" })
+						@Html.ActionLink("Team Members", "TeamMembers", new { searching = item.ProjectName }, htmlAttributes: new { @class = "btn btn-primary", @role = "button" , @style = "background-color: #039E67; Color: black; " })
 					</td>
 
 					<td>
-						@Html.ActionLink("Add Member", "AddMember", new { leaderfn = item.TeamLeaderFirstName, leaderln = item.TeamLeaderLastName, projn = item.ProjectName }, htmlAttributes: new { @class = "btn btn-primary", @role = "button" })
+						@Html.ActionLink("Add Member", "AddMember", new { leaderfn = item.TeamLeaderFirstName, leaderln = item.TeamLeaderLastName, projn = item.ProjectName }, htmlAttributes: new { @class = "btn btn-warning", @role = "button" , @style = "background-color: #E6B471; color:black;" })
 					</td>
 
 

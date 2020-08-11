@@ -260,9 +260,10 @@ namespace Licenta_Front_End.Controllers
 
 			if (!String.IsNullOrEmpty(searching))
 			{
-				DevAndLead = DevAndLead.Where(s => s.ProjectName.Contains(searching)
-											  || s.Link.Contains(searching)
-											  || s.Details.Contains(searching)
+				DevAndLead = DevAndLead.Where(s => s.MeetingName.ToLower().Contains(searching)||
+													s.ProjectName.ToLower().Contains(searching)||
+													s.Link.ToLower().Contains(searching)
+											  
 											  ).ToList();
 				
 			}

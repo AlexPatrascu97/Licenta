@@ -11,11 +11,11 @@
 @using (Html.BeginForm("Index", "Project", FormMethod.Get))
 {
 	<p>
-		<a asp-action="Create" class="btn btn-warning">Create New</a>
-		<input class="btn btn-warning" type="submit" value="Search" />
+		<a asp-action="Create" class="btn btn-warning" style="background-color: #E6B471;" >Create New</a>
+		<input class="btn btn-warning" type="submit" value="Search" style="background-color: #E6B471;" placeholder="Search..." />
 	</p>
 	<br>
-	@Html.TextBox("searching", null, new { @class = "form-control" })
+	@Html.TextBox("searching", null, new { @class = "form-control" ,@placeholder="Search..."})
 	<br>
 
 }
@@ -63,13 +63,13 @@
 					</td>
 
 					<td>
-						@Html.ActionLink("Edit", "Edit", new { Id = item.Id }, htmlAttributes: new { @class = "btn btn-primary", @role = "button" })
+						@Html.ActionLink("Edit", "Edit", new { Id = item.Id }, htmlAttributes: new { @class = "btn btn-primary", @role = "button" , @style = "background-color: #039E67; Color: black; " })
 					</td>
 					<td>
-						@Html.ActionLink("Details", "Details", new { Id = item.Id }, htmlAttributes: new { @class = "btn btn-info", @role = "button" })
+						@Html.ActionLink("Details", "Details", new { Id = item.Id }, htmlAttributes: new { @class = "btn btn-warning", @role = "button" , @style = "background-color: #E6B471;" })
 					</td>
 					<td>
-						@Html.ActionLink("Delete", "Delete", new { Id = item.Id }, htmlAttributes: new { @class = "btn btn-danger", @role = "button" })
+						@Html.ActionLink("Delete", "Delete", new { Id = item.Id }, htmlAttributes: new { @class = "btn btn-danger", @role = "button" , @style = "background-color: #CC621B; border-color: #CC621B; color: black;" })
 					</td>
 				</tr>
 			}

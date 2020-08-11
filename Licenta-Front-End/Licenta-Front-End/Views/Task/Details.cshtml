@@ -48,16 +48,16 @@
 		<div class="butoane">
 			@if ((Context.Session.GetString("Role") != "Developer"))
 			{
-				@Html.ActionLink("Edit", "Edit", new { Id = Model.Id }, new { @class = "btn btn-warning", @role = "button" })
+				@Html.ActionLink("Edit", "Edit", new { Id = Model.Id }, new { @class = "btn btn-primary", @role = "button", @style = "background-color: #039E67; Color: black; " })
 			}
 
 			@if ((Context.Session.GetString("Role") == "Developer"))
 			{
-				<a asp-action="TasksForEmployee" class="btn btn-warning">Back to List</a>
+				<a asp-action="TasksForEmployee" class="btn btn-warning" style = "background-color: #CC621B; border-color: #CC621B; color: black;">Back to List</a>
 			}
 			else
 			{
-				<a asp-action="Index" class="btn btn-warning">Back to List</a>
+				<a asp-action="Index" class="btn btn-warning" style = "background-color: #CC621B; border-color: #CC621B; color: black;">Back to List</a>
 			}
 			<br>
 			<br>

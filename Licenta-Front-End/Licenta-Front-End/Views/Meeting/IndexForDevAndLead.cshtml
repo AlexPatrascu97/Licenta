@@ -10,11 +10,11 @@
 {
 	<p>
 
-		<a asp-action="CreateForLeader" class="btn btn-warning">Create New</a>
-		<input class="btn btn-warning" type="submit" value="Search" />
+		<a asp-action="CreateForLeader" class="btn btn-warning" style = "background-color: #E6B471;" >Create New</a>
+		<input class="btn btn-warning" type="submit" value="Search" style = "background-color: #E6B471;"   />
 	</p>
 	<br>
-	@Html.TextBox("searching", null, new { @class = "form-control" })
+	@Html.TextBox("searching", null, new { @class = "form-control" , @placeholder="Search..."})
 	<br>
 
 }
@@ -67,13 +67,13 @@
 
 
 				<td>
-					@Html.ActionLink("Details", "DetailsForLeader", new { Id = item.Id }, htmlAttributes: new { @class = "btn btn-info", @role = "button" })
+					@Html.ActionLink("Details", "DetailsForLeader", new { Id = item.Id }, htmlAttributes: new { @class = "btn btn-warning", @role = "button" , @style = "background-color: #E6B471;" })
 				</td>
 
 				@if ((Context.Session.GetString("Role") == "Leader"))
 				{
 					<td>
-						@Html.ActionLink("Delete", "Delete", new { Id = item.Id }, htmlAttributes: new { @class = "btn btn-danger", @role = "button" })
+						@Html.ActionLink("Delete", "Delete", new { Id = item.Id }, htmlAttributes: new { @class = "btn btn-danger", @role = "button" , @style = "background-color: #CC621B;border-color: #CC621B;color: black;" })
 					</td>
 				}
 
