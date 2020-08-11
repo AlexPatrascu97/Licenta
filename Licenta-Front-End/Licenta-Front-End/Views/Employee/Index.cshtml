@@ -1,5 +1,4 @@
 ﻿@model IEnumerable<Licenta_Front_End.Models.Employee>
-
 @{
 	ViewData["Title"] = "Index";
 }
@@ -9,8 +8,8 @@
 @using (Html.BeginForm("Index", "Employee", FormMethod.Get))
 {
 	<p>
-		<a asp-action="Create" class="btn btn-warning">Create New</a>
-		<input class="btn btn-warning" type="submit" value="Search" />
+		<a asp-action="Create" class="btn btn-warning fire">Create New</a>
+		<input class="btn btn-warning fire" type="submit" value="Search" placeholder="Search..." />
 	</p>
 	<br>
 	@Html.TextBox("searching", null, new { @class = "form-control" })

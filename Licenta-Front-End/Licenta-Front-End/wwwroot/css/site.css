@@ -1,7 +1,7 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1210px) {
 	a.navbar-brand {
 		display: none;
 	}
@@ -9,6 +9,7 @@ for details on configuring this project to bundle and minify static web assets. 
 		display: none;
 	}
 }
+
 
 a.navbar-brand {
   white-space: normal;
