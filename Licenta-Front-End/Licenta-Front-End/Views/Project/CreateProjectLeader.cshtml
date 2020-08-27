@@ -12,27 +12,27 @@
 			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
 			<div class="form-group">
 				<label asp-for="ProjectName" class="control-label">Project Name</label>
-				<input asp-for="ProjectName" class="form-control" />
+				<input asp-for="ProjectName" class="form-control"  required="required"/>
 				<span asp-validation-for="ProjectName" class="text-danger"></span>
 			</div>
 			<div class="form-group">
 				<label asp-for="StartDate" class="control-label">Start Date</label>
-				<input asp-for="StartDate" class="form-control" />
+				<input asp-for="StartDate" class="form-control"  required="required"/>
 				<span asp-validation-for="StartDate" class="text-danger"></span>
 			</div>
 			<div class="form-group">
 				<label asp-for="AllocatedMoney" class="control-label">Allocated Money</label>
-				<input asp-for="AllocatedMoney" class="form-control" />
+				<input asp-for="AllocatedMoney" class="form-control"  required="required"/>
 				<span asp-validation-for="AllocatedMoney" class="text-danger"></span>
 			</div>
 			<div class="form-group">
 				<label asp-for="ClientName" class="control-label">Client Name</label>
-				<input asp-for="ClientName" class="form-control" />
+				<input asp-for="ClientName" class="form-control"  required="required"/>
 				<span asp-validation-for="ClientName" class="text-danger"></span>
 			</div>
 			<div class="form-group">
 				<label asp-for="Detail" class="control-label"></label>
-				<textarea asp-for="Detail" class="form-control" id="exampleFormControlTextareaRedeem" rows="5"></textarea>
+				<textarea asp-for="Detail" class="form-control" id="exampleFormControlTextareaRedeem" rows="5"  required="required"></textarea>
 				<span asp-validation-for="Detail" class="text-danger"></span>
 			</div>
 			<div class="form-group">

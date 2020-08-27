@@ -29,11 +29,11 @@ namespace Licenta_Front_End.Controllers
 
 			if (!String.IsNullOrEmpty(searching))
 			{
-				teams = teams.Where(s => s.ProjectName.Contains(searching)
-											  || s.TeamLeaderFirstName.Contains(searching)
-											  || s.TeamLeaderLastName.Contains(searching)
-											  || s.FirstName.Contains(searching)
-											  || s.LastName.Equals(searching)
+				teams = teams.Where(s => s.ProjectName.ToLower().Contains(searching.ToLower())
+											  || s.TeamLeaderFirstName.ToLower().Contains(searching.ToLower())
+											  || s.TeamLeaderLastName.ToLower().Contains(searching.ToLower())
+											  || s.FirstName.ToLower().Contains(searching.ToLower())
+											  || s.LastName.ToLower().Equals(searching.ToLower())
 											  ).ToList();
 			}
 			return View(teams);

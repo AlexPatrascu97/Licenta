@@ -12,11 +12,12 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Security.Cryptography;
 using System.Text;
+using System.IO;
 
 namespace Licenta_Front_End.Controllers
 {
-    public class EmployeeController : Controller
-    {
+	public class EmployeeController : Controller
+	{
 
 		ProductApi _api = new ProductApi();
 		int inboxstatus = 0;
@@ -34,12 +35,12 @@ namespace Licenta_Front_End.Controllers
 
 			if (!String.IsNullOrEmpty(searching))
 			{
-				employees = employees.Where(s => s.FirstName.Contains(searching) 
-											  || s.LastName.Contains(searching) 
-											  || s.Role.Contains(searching)).ToList();
+				employees = employees.Where(s => s.FirstName.ToLower().Contains(searching.ToLower())
+											  || s.LastName.ToLower().Contains(searching.ToLower())
+											  || s.Role.ToLower().Contains(searching.ToLower())).ToList();
 			}
 
-			
+
 
 			return View(employees);
 
@@ -86,6 +87,7 @@ namespace Licenta_Front_End.Controllers
 
 			employee.Password = builder.ToString();*/
 
+			employee.Password = Encrypt(employee.Password);
 			var postTask = client.PostAsJsonAsync<Employee>("api/employee/createemployee", employee);
 			postTask.Wait();
 
@@ -129,6 +131,7 @@ namespace Licenta_Front_End.Controllers
 		{
 			HttpClient client = _api.Initial();
 
+			employee.Password = Encrypt(employee.Password);
 			HttpResponseMessage response = await client.PutAsJsonAsync(
 				$"api/employee/UpdateEmployee/{employee.Id}", employee);
 			response.EnsureSuccessStatusCode();
@@ -156,7 +159,7 @@ namespace Licenta_Front_End.Controllers
 				return View(model);
 			}
 
-			
+
 			List<Employee> users = new List<Employee>();
 			HttpClient client = _api.Initial();
 			HttpResponseMessage res = await client.GetAsync("api/employee/getallemployees");
@@ -176,7 +179,7 @@ namespace Licenta_Front_End.Controllers
 
 			foreach (var user in users)
 			{
-				if ((user.FirstName == model.FirstName) && (user.Password == model.Password) && (user.LastName == model.LastName))
+				if ((user.FirstName == model.FirstName) && ((user.Password == model.Password) || ((user.Password == Encrypt(model.Password)))) && (user.LastName == model.LastName))
 				{
 					HttpContext.Session.SetString("FirstName", user.FirstName);
 					HttpContext.Session.SetString("LastName", user.LastName);
@@ -198,7 +201,9 @@ namespace Licenta_Front_End.Controllers
 					return View("~/Views/Home/Index.cshtml");
 
 				}
-			
+
+
+
 			}
 
 			return View(model);
@@ -206,7 +211,7 @@ namespace Licenta_Front_End.Controllers
 
 		public async Task<ActionResult> LogOut()
 		{
-			
+
 			HttpContext.Session.Remove("FirstName");
 			HttpContext.Session.Remove("LastName");
 			HttpContext.Session.Remove("Role");
@@ -244,7 +249,7 @@ namespace Licenta_Front_End.Controllers
 						{
 
 						}
-						else 
+						else
 						{
 							employeeswithnoproject.Add(emp);
 						}
@@ -266,5 +271,81 @@ namespace Licenta_Front_End.Controllers
 
 		}
 
+
+
+		public static class Global
+		{
+			// set password
+			public const string strPassword = "LetMeIn99$";
+
+			// set permutations
+			public const String strPermutation = "ouiveyxaqtd";
+			public const Int32 bytePermutation1 = 0x19;
+			public const Int32 bytePermutation2 = 0x59;
+			public const Int32 bytePermutation3 = 0x17;
+			public const Int32 bytePermutation4 = 0x41;
+		}
+
+		// encoding
+		public static string Encrypt(string strData)
+		{
+			return Convert.ToBase64String(Encrypt(Encoding.UTF8.GetBytes(strData)));
+		}
+
+
+		// decoding
+		public static string Decrypt(string strData)
+		{
+			return Encoding.UTF8.GetString(Decrypt(Convert.FromBase64String(strData)));
+
+		}
+
+		// encrypt
+		public static byte[] Encrypt(byte[] strData)
+		{
+			PasswordDeriveBytes passbytes =
+			new PasswordDeriveBytes(Global.strPermutation,
+			new byte[] { Global.bytePermutation1,
+						 Global.bytePermutation2,
+						 Global.bytePermutation3,
+						 Global.bytePermutation4
+			});
+
+			MemoryStream memstream = new MemoryStream();
+			Aes aes = new AesManaged();
+			aes.Key = passbytes.GetBytes(aes.KeySize / 8);
+			aes.IV = passbytes.GetBytes(aes.BlockSize / 8);
+
+			CryptoStream cryptostream = new CryptoStream(memstream,
+			aes.CreateEncryptor(), CryptoStreamMode.Write);
+			cryptostream.Write(strData, 0, strData.Length);
+			cryptostream.Close();
+			return memstream.ToArray();
+		}
+
+		// decrypt
+		public static byte[] Decrypt(byte[] strData)
+		{
+			PasswordDeriveBytes passbytes =
+			new PasswordDeriveBytes(Global.strPermutation,
+			new byte[] { Global.bytePermutation1,
+						 Global.bytePermutation2,
+						 Global.bytePermutation3,
+						 Global.bytePermutation4
+			});
+
+			MemoryStream memstream = new MemoryStream();
+			Aes aes = new AesManaged();
+			aes.Key = passbytes.GetBytes(aes.KeySize / 8);
+			aes.IV = passbytes.GetBytes(aes.BlockSize / 8);
+
+			CryptoStream cryptostream = new CryptoStream(memstream,
+			aes.CreateDecryptor(), CryptoStreamMode.Write);
+			cryptostream.Write(strData, 0, strData.Length);
+			cryptostream.Close();
+			return memstream.ToArray();
+		}
+		
 	}
+
 }

@@ -29,9 +29,8 @@ namespace Licenta_Front_End.Controllers
 
 			if (!String.IsNullOrEmpty(searching))
 			{
-				projects = projects.Where(s => s.ProjectName.Contains(searching)
-											  || s.TeamLeader.Contains(searching)
-											  || s.ClientName.Contains(searching)
+				projects = projects.Where(s => s.ClientName.ToLower().Contains(searching.ToLower())
+											  || s.ProjectName.ToLower().Contains(searching.ToLower())
 											  || s.AllocatedMoney.Equals(searching)
 											  || s.StartDate.Year.Equals(searching)
 											  || s.StartDate.Day.Equals(searching)

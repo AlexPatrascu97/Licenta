@@ -30,12 +30,9 @@ namespace Licenta_Front_End.Controllers
 
 			if (!String.IsNullOrEmpty(searching))
 			{
-				tasks = tasks.Where(s => s.sprintNumber.Equals(searching)
-											  || s.ProjectName.Contains(searching)
-											  || s.TaskOwnerID.Equals(searching)
-											  || s.Details.Contains(searching)
-											  ).ToList();
+				tasks = tasks.Where(s => s.TaskName.ToLower().Contains(searching.ToLower()) || s.ProjectName.ToLower().Contains(searching.ToLower()) || s.Status.ToLower().Contains(searching.ToLower())).ToList();
 			}
+
 			return View(tasks);
 
 		}
@@ -440,11 +437,10 @@ namespace Licenta_Front_End.Controllers
 
 			if (!String.IsNullOrEmpty(searching))
 			{
-				tasksforleader = tasksforleader.Where(s => s.TaskName.Equals(searching)
-											  || s.ProjectName.Contains(searching)
-											  || s.TaskOwnerID.Equals(searching)
-											  || s.Details.Contains(searching)
-											  || s.Status.Contains(searching)
+				tasksforleader = tasksforleader.Where(s => s.TaskName.Contains(searching)
+											  || s.ProjectName.ToLower().Contains(searching.ToLower())
+											  || s.Details.ToLower().Contains(searching.ToLower())
+											  || s.Status.ToLower().Contains(searching.ToLower())
 											  ).ToList();
 			}
 			return View(tasksforleader);

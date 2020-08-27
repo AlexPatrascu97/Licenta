@@ -1,9 +1,8 @@
 ﻿@model IEnumerable<Licenta_Front_End.Models.Employee>
+
 @{
 	ViewData["Title"] = "Index";
 }
-
-
 
 @using (Html.BeginForm("Index", "Employee", FormMethod.Get))
 {
@@ -73,7 +72,7 @@
 							@Html.DisplayFor(modelItem => item.JobTitle)
 						</td>
 
-						<td>
+						<td class="lessertext">
 							@Html.DisplayFor(modelItem => item.Password)
 						</td>
 						<td>

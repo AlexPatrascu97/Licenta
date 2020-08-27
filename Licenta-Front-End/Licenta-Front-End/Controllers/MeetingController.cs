@@ -28,9 +28,9 @@ namespace Licenta_Front_End.Controllers
 
 			if (!String.IsNullOrEmpty(searching))
 			{
-				meetings = meetings.Where(s => s.ProjectName.Contains(searching)
-											  || s.Link.Contains(searching)
-											  || s.Details.Contains(searching)
+				meetings = meetings.Where(s => s.ProjectName.ToLower().Contains(searching.ToLower())
+											  || s.Link.ToLower().Contains(searching.ToLower())
+											  || s.Details.ToLower().Contains(searching.ToLower())
 											  ).ToList();
 			}
 			return View(meetings);
