@@ -437,7 +437,7 @@ namespace Licenta_Front_End.Controllers
 
 			if (!String.IsNullOrEmpty(searching))
 			{
-				tasksforleader = tasksforleader.Where(s => s.TaskName.Contains(searching)
+				tasksforleader = tasksforleader.Where(s => s.TaskName.ToLower().Contains(searching.ToLower())
 											  || s.ProjectName.ToLower().Contains(searching.ToLower())
 											  || s.Details.ToLower().Contains(searching.ToLower())
 											  || s.Status.ToLower().Contains(searching.ToLower())

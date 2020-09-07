@@ -54,10 +54,10 @@ namespace Licenta_Front_End.Controllers
 
 			if (!String.IsNullOrEmpty(searching))
 			{
-				inboxes = inboxes.Where(s => s.Sender.Contains(searching)
-											  || s.Recipient.Contains(searching)
-											  || s.Message.Contains(searching)
-											  || s.Title.Contains(searching)).ToList();
+				inboxes = inboxes.Where(s => s.Sender.ToLower().Contains(searching.ToLower())
+											  || s.Recipient.ToLower().Contains(searching.ToLower())
+											  || s.Message.ToLower().Contains(searching.ToLower())
+											  || s.Title.ToLower().Contains(searching.ToLower())).ToList();
 			}
 
 			return View(inboxes);
